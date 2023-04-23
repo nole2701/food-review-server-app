@@ -2,12 +2,26 @@ import * as restaurantDao from './restaurant-dao.js';
 
 export default (app) => {
     app.get('/api/restaurants', findRestaurants);
+    app.get('/api/restaurants/:resName', findRestaurantByName);
+    app.get('/api/restaurants/:rid', findRestaurantById);
     app.post('/api/restaurants', createRestaurant);
     app.put('/api/restaurants/:rid', updateRestaurant);
     app.delete('/api/restaurants/:rid', deleteRestaurant);
 
     const findRestaurants = async (req, res) => {
         const restaurants = await restaurantDao.findRestaurants();
+        res.json(restaurants);
+    }
+    
+    const findRestaurantById = async (req, res) => {
+        const restaurantId = req.params['rid'];
+        const restaurant = await restaurantDao.findRestaurantById(restaurantId);
+        res.json(restaurant);
+    }
+
+    const findRestaurantByName = async (req, res) => {
+        const restaurantName = req.params['resName'];
+        const restaurants = await restaurantDao.findRestaurantByName(restaurantName);
         res.json(restaurants);
     }
 

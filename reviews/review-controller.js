@@ -2,12 +2,19 @@ import * as reviewDao from './review-dao.js';
 
 export default (app) => {
     app.get('/api/reviews', findReviews);
+    app.get('/api/reviews/:resid', findRestaurantReviews);
     app.post('/api/reviews', createReview);
     app.put('/api/reviews/:rid', updateReview);
     app.delete('/api/reviews/:rid', deleteReview);
 
     const findReviews = async (req, res) => {
         const reviews = await reviewDao.findReviews();
+        res.json(reviews);
+    }
+
+    const findRestaurantReviews = async (req, res) => {
+        const restaurantId = req.params['resid'];
+        const reviews = await reviewDao.findRestaurantReviews(restaurantId);
         res.json(reviews);
     }
 

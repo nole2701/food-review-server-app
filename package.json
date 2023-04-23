@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "food-review-server-app",
   "version": "1.0.0",
   "description": "",

@@ -1,4 +1,4 @@
-import restaurantModel from "./restaurant-model";
+import restaurantModel from "./restaurant-model.js";
 export const findRestaurants = () => restaurantModel.find();
 export const findRestaurantById = (resId) => restaurantModel.findById({_id: resId});
 export const findRestaurantByName = (resName) => restaurantModel.find({name: resName});

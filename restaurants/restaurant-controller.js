@@ -7,41 +7,44 @@ export default (app) => {
     app.post('/api/restaurants', createRestaurant);
     app.put('/api/restaurants/:rid', updateRestaurant);
     app.delete('/api/restaurants/:rid', deleteRestaurant);
-
-    const findRestaurants = async (req, res) => {
-        const restaurants = await restaurantDao.findRestaurants();
-        res.json(restaurants);
-    }
+}
     
-    const findRestaurantById = async (req, res) => {
-        const restaurantId = req.params['rid'];
-        const restaurant = await restaurantDao.findRestaurantById(restaurantId);
-        res.json(restaurant);
-    }
 
-    const findRestaurantByName = async (req, res) => {
-        const restaurantName = req.params['resName'];
-        const restaurants = await restaurantDao.findRestaurantByName(restaurantName);
-        res.json(restaurants);
-    }
+const findRestaurants = async (req, res) => {
+    const restaurants = await restaurantDao.findRestaurants();
+    res.json(restaurants);
+}
 
-    const createRestaurant = async (req, res) => {
-        const restaurant = req.body;
-        const status = await restaurantDao.createRestaurant(restaurant);
-        res.json(status);
-    }
+const findRestaurantById = async (req, res) => {
+    const restaurantId = req.params['rid'];
+    const restaurant = await restaurantDao.findRestaurantById(restaurantId);
+    res.json(restaurant);
+}
 
-    const updateRestaurant = async (req, res) => {
-        const restaurantId = req.params['rid'];
-        const updates = req.body;
-        const status = await restaurantDao.updateRestaurant(restaurantId, updates);
-        res.json(status);
-    }
+const findRestaurantByName = async (req, res) => {
+    const restaurantName = req.params['resName'];
+    const restaurants = await restaurantDao.findRestaurantByName(restaurantName);
+    res.json(restaurants);
+}
 
-    const deleteRestaurant = async (req, res) => {
-        const restaurantId = req.params['rid'];
-        const status = await restaurantDao.deleteRestaurant(restaurantId);
-        res.json(status);
-    }
-   }
+const createRestaurant = async (req, res) => {
+    const restaurant = req.body;
+    const status = await restaurantDao.createRestaurant(restaurant);
+    res.json(status);
+}
+
+const updateRestaurant = async (req, res) => {
+    const restaurantId = req.params['rid'];
+    const updates = req.body;
+    const status = await restaurantDao.updateRestaurant(restaurantId, updates);
+    res.json(status);
+}
+
+const deleteRestaurant = async (req, res) => {
+    const restaurantId = req.params['rid'];
+    const status = await restaurantDao.deleteRestaurant(restaurantId);
+    res.json(status);
+}
+
+    
 

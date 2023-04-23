@@ -54,11 +54,7 @@ const logout = async (req, res) => {
 const update   = async (req, res) => {
     const userId = req.params['uid'];
     const updates = req.body;
-    users = users.map((usr) =>
-        usr._id === userId ?
-        {...usr, ...updates} :
-        usr
-    );
+    const status = await userDao.updateUser(userId, updates);
     res.sendStatus(200);
 };
 

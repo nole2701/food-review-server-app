@@ -2,11 +2,17 @@ import * as userDao from "./user-dao.js";
 
 
 const AuthController = (app) => {
+    app.get("/api/users", findAllUsers);
     app.post("/api/users/register", register);
     app.post("/api/users/login", login);
     app.post("/api/users/profile", profile);
     app.post("/api/users/logout", logout);
     app.put ("/api/users/:uid", update);
+};
+
+const findAllUsers = async (req, res) => {
+    const users = await userDao.findAllUsers();
+    res.json(users);
 };
 
 const register = async (req, res) => {

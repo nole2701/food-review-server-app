@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
    dob: Date,
    createdAt: { type: Date, default: Date.now },
    isRestaurantOwner: { type: Boolean, default: false },
+   about: String,
  },
  { collection: "users" }
 );

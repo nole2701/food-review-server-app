@@ -1,11 +1,16 @@
-import mongoose from 'mongoose';
-const schema = mongoose.Schema({
+import mongoose from "mongoose";
+const schema = mongoose.Schema(
+  {
     name: String,
     address: String,
+    image: String,
     ratings: [Number],
     avgRating: Number,
     numReviews: Number,
     cuisine: [String],
     openingHours: [String],
-}, {collection: 'restaurants'});
+    description: String,
+  },
+  { collection: "restaurants" }
+);
 export default schema;

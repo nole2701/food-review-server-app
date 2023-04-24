@@ -8,7 +8,6 @@ const schema = mongoose.Schema(
     avgRating: Number,
     numReviews: Number,
     cuisine: [String],
-    description: String,
     openingHours: [String],
     description: String,
   },

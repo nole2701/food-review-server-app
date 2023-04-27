@@ -5,7 +5,6 @@ const userSchema = new mongoose.Schema(
    password: { type: String, required: true },
    firstName: String,
    lastName: String,
-   dob: Date,
    createdAt: { type: Date, default: Date.now },
    isRestaurantOwner: { type: Boolean, default: false },
    about: String,
